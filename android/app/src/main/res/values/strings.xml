@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">iSOUQ</string>
+
+    <string name="facebook_app_id">1689425661233646</string>
+    <string name="fb_login_protocol_scheme">fb1689425661233646</string>
+    <string name="admob_app_id">ca-app-pub-2004979416587198~3399203318</string>
+
+</resources>
