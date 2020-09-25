@@ -12,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpViewModel extends ChangeNotifier{
   FirebaseMethods firebaseMethods = FirebaseMethods.sharedInstance;
-  StreamController<UiEvents> eventsStream = StreamController();
+  StreamController<UiEvents> eventsStream = StreamController<UiEvents>.broadcast();
 
   String message = "";
 
@@ -40,18 +40,16 @@ class SignUpViewModel extends ChangeNotifier{
         eventsStream.add(UiEvents.loading);
         notifyListeners();
 
-        String response = await firebaseMethods.createUserAccount(fullname: _name,email: _email,password: _password);
+        String response = await firebaseMethods.createUserAccount(fullName: _name,email: _email,password: _password);
 
         eventsStream.add(UiEvents.completed);
         notifyListeners();
-
 
         if (response == firebaseMethods.success) {
           _saveProfile(
               email: _email, password: _password);
           eventsStream.add(UiEvents.runAnimation);
-        }
-        else {
+        } else {
           message = response;
           eventsStream.add(UiEvents.showMessage);
 
@@ -114,7 +112,9 @@ class SignUpViewModel extends ChangeNotifier{
     notifyListeners();
 
     if (_isValidSignUp(_email, _password, _name, _rePassword)) {
+
       await _signUp(_name,_email,_password);
+
     } else {
       eventsStream.add(UiEvents.showMessage);
     }
@@ -122,6 +122,7 @@ class SignUpViewModel extends ChangeNotifier{
   }
 
   @override
+  // ignore: must_call_super
   void dispose() {
     eventsStream.close();
     super.dispose();

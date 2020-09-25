@@ -1,15 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:isouq/login/views/ChoseLoginOrSignup.dart';
+import 'package:isouq/login/views/ChooseLoginOrSignup.dart';
 import 'package:isouq/common/text_styles/text_styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/Models/page_view_model.dart';
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/intro_views_flutter.dart';
 
 
-class onBoarding extends StatefulWidget {
+class OnBoarding extends StatefulWidget {
   @override
-  _onBoardingState createState() => _onBoardingState();
+  _OnBoardingState createState() => _OnBoardingState();
 }
 
 
@@ -36,7 +36,8 @@ final pages = [
         height: 285.0,
         width: 285.0,
         alignment: Alignment.center,
-      )),
+      )
+  ),
 
   new PageViewModel(
       pageColor:  Colors.yellow,
@@ -82,7 +83,7 @@ final pages = [
 
 ];
 
-class _onBoardingState extends State<onBoarding> {
+class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return IntroViewsFlutter(
@@ -95,7 +96,7 @@ class _onBoardingState extends State<onBoarding> {
      SharedPreferences prefs;
     prefs = await SharedPreferences.getInstance();
        prefs.setString("username", "Login");
-        Navigator.of(context).pushReplacement(PageRouteBuilder(pageBuilder: (_,__,___)=> new ChoseLogin(),
+        Navigator.of(context).pushReplacement(PageRouteBuilder(pageBuilder: (_,__,___)=> new ChooseLogin(),
         transitionsBuilder: (_,Animation<double> animation,__,Widget widget){
           return Opacity(
             opacity: animation.value,

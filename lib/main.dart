@@ -98,7 +98,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       supportedLocales: EasyLocalization.of(context).supportedLocales,
       locale: EasyLocalization.of(context).locale,
-      title: 'i-Software',
+      title: 'iNative Coder',
       theme: Themes.defaultTheme,
       home: SplashScreen(),
     );

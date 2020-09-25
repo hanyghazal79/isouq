@@ -7,15 +7,13 @@ import 'package:isouq/common/widgets/custom_text_field.dart';
 import 'package:isouq/login/views/login_view.dart';
 import 'package:isouq/sign_up/viewmodels/sign_up_viewmodel.dart';
 import 'package:provider/provider.dart';
-
 import 'package:isouq/common/widgets/button_black_bottom.dart';
 
 
-final _emailController = TextEditingController();
-final _passwordController = TextEditingController();
-final _rePasswordController = TextEditingController();
-final _nameController = TextEditingController();
-
+// final _emailController = TextEditingController();
+// final _passwordController = TextEditingController();
+// final _rePasswordController = TextEditingController();
+// final _nameController = TextEditingController();
 
 var tap = 0;
 
@@ -24,7 +22,7 @@ AnimationController sanimationController;
 AnimationController animationControllerScreen;
 Animation animationScreen;
 
-Future<Null> _PlayAnimation() async {
+Future<Null> _playAnimation() async {
   try {
     await sanimationController.forward();
     await sanimationController.reverse();
@@ -41,14 +39,20 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   SignUpViewModel _viewModel;
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _rePasswordController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+
   //Animation Declaration
   /// Set AnimationController to initState
   @override
   void initState() {
     sanimationController =
     AnimationController(vsync: this, duration: Duration(milliseconds: 800))
-      ..addStatusListener((statuss) {
-        if (statuss == AnimationStatus.dismissed) {
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.dismissed) {
           setState(() {
             tap = 0;
           });
@@ -56,6 +60,7 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
       });
     _viewModel = Provider.of<SignUpViewModel>(context,listen: false);
     _initiateUiEvents(context);
+
     super.initState();
   }
 
@@ -63,17 +68,17 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
   @override
   void dispose() {
     sanimationController.dispose();
-    _rePasswordController.dispose();
-    _passwordController.dispose();
-    _emailController.dispose();
-    _nameController.dispose();
+    // _rePasswordController.dispose();
+    // _passwordController.dispose();
+    // _emailController.dispose();
+    // _nameController.dispose();
     _viewModel.dispose();
     super.dispose();
   }
 
 
-  _initiateUiEvents(BuildContext context)
-  {
+  _initiateUiEvents(BuildContext context) {
+
     _viewModel.eventsStream.stream.listen((event) {
       if (event == UiEvents.loading)
         displayProgressDialog(context);
@@ -109,17 +114,17 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
     new LoginAnimation(
       animationController: sanimationController.view,
     );
-    _PlayAnimation();
+    _playAnimation();
     return tap;
   }
 
-  /// Playanimation set forward reverse
+  /// Play animation set forward reverse
 
   /// Component Widget layout UI
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
-    mediaQueryData.devicePixelRatio;
+    // mediaQueryData.devicePixelRatio;
     mediaQueryData.size.height;
     mediaQueryData.size.width;
 
@@ -183,7 +188,7 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
 
                                     /// Animation text i-software shop accept from login layout
                                     Hero(
-                                      tag: "i-software",
+                                      tag: "iNative Coder",
                                       child: Text(
                                         tr('title'),
                                         style: TextStyle(
@@ -201,10 +206,10 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
                                     EdgeInsets.symmetric(vertical: 50.0)),
 
                                 /// TextFromField Email
-                                textFromField(
+                                CustomTextField(
                                   icon: Icons.email,
                                   password: false,
-                                  email:
+                                  label:
                                   tr('email'),
                                   inputType: TextInputType.emailAddress,
                                   textEditingController: _emailController,
@@ -212,11 +217,11 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
                                 Padding(
                                     padding:
                                     EdgeInsets.symmetric(vertical: 5.0)),
-                                textFromField(
+                                CustomTextField(
                                   icon: Icons.contacts,
                                   password: false,
-                                  email:
-                                  tr('name'),
+                                  label:
+                                  tr('user name'),
                                   inputType: TextInputType.text,
                                   textEditingController: _nameController,
                                 ),
@@ -225,10 +230,10 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
                                     EdgeInsets.symmetric(vertical: 5.0)),
 
                                 /// TextFromField Password
-                                textFromField(
+                                CustomTextField(
                                   icon: Icons.vpn_key,
-                                  password: false,
-                                  email: tr('password'),
+                                  password: true,
+                                  label: tr('password'),
                                   inputType: TextInputType.text,
                                   textEditingController: _passwordController,
                                 ),
@@ -237,10 +242,10 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
                                     EdgeInsets.symmetric(vertical: 5.0)),
 
                                 /// TextFromField Password
-                                textFromField(
+                                CustomTextField(
                                   icon: Icons.vpn_key,
-                                  password: false,
-                                  email: tr('re-password'),
+                                  password: true,
+                                  label: tr('re-password'),
                                   inputType: TextInputType.text,
                                   textEditingController:
                                   _rePasswordController,
@@ -254,7 +259,7 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
                                           MaterialPageRoute(
                                               builder:
                                                   (BuildContext context) =>
-                                              new loginScreen()));
+                                              new LoginScreen()));
                                     },
                                     child: Text(
                                       tr('notHaveLogin'),

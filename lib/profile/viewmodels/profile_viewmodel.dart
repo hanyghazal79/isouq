@@ -118,7 +118,7 @@ class ProfileViewModel extends ChangeNotifier {
   }
 
   logout() async {
-    await firebaseSharedInstance.SignOut();
+    await firebaseSharedInstance.signOut();
     if (firebaseSharedInstance.currentFirebaseUser == null) {
       eventsStreamController.add(UiEvents.navigateToLogin);
       notifyListeners();

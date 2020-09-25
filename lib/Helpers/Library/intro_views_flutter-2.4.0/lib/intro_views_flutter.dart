@@ -1,7 +1,6 @@
 library intro_views_flutter;
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/Animation_Gesture/animated_page_dragger.dart';
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/Animation_Gesture/page_dragger.dart';
@@ -10,13 +9,13 @@ import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/Constants/co
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/Models/page_view_model.dart';
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/Models/pager_indicator_view_model.dart';
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/Models/slide_update_model.dart';
-
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/UI/page.dart'as page;
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/UI/page_indicator_buttons.dart';
 import 'package:isouq/Helpers/Library/intro_views_flutter-2.4.0/lib/UI/pager_indicator.dart';
 
 /// This is the IntroViewsFlutter widget of app which is a stateful widget as its state is dynamic and updates asynchronously.
 class IntroViewsFlutter extends StatefulWidget {
+
   /// List of [PageViewModel] to display
   final List<PageViewModel> pages;
 

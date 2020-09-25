@@ -13,13 +13,13 @@ import 'package:provider/provider.dart';
 
 var firebase = FirebaseMethods.sharedInstance;
 
-class ChoseLogin extends StatefulWidget {
+class ChooseLogin extends StatefulWidget {
   @override
-  _ChoseLoginState createState() => _ChoseLoginState();
+  _ChooseLoginState createState() => _ChooseLoginState();
 }
 
 /// Component Widget this layout UI
-class _ChoseLoginState extends State<ChoseLogin> with TickerProviderStateMixin {
+class _ChooseLoginState extends State<ChooseLogin> with TickerProviderStateMixin {
   final firebaseSharedInstance = FirebaseMethods.sharedInstance;
 
   LoginViewModel _viewModel;

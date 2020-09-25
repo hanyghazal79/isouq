@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-/// textfromfield custom class
-class textFromField extends StatelessWidget {
-  bool password;
-  String email;
-  IconData icon;
-  TextInputType inputType;
-  TextEditingController textEditingController;
+/// text from field custom class
+class CustomTextField extends StatelessWidget {
 
-  textFromField(
-      {this.email,
+  final bool password;
+  final String label;
+  final IconData icon;
+  final TextInputType inputType;
+  final TextEditingController textEditingController;
+
+  CustomTextField(
+      {this.label,
         this.icon,
         this.inputType,
         this.password,
@@ -37,7 +38,7 @@ class textFromField extends StatelessWidget {
             controller: textEditingController,
             decoration: InputDecoration(
                 border: InputBorder.none,
-                labelText: email,
+                labelText: label,
                 icon: Icon(
                   icon,
                   color: Colors.black38,

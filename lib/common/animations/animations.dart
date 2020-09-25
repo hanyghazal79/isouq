@@ -41,7 +41,7 @@ class _AnimationSplashLoginState extends State<AnimationSplashLogin> {
     widget.animationController.addListener(() {
       if (widget.animation.isCompleted) {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => new loginScreen()));
+            builder: (BuildContext context) => new LoginScreen()));
       }
     });
     return AnimatedBuilder(
@@ -101,7 +101,7 @@ class _AnimationSplashSignupState extends State<AnimationSplashSignup> {
   }
 }
 
-/// Componen Login Animation to set Animation in login like a bounce ball to fullscreen
+/// Component Login Animation to set Animation in login like a bounce ball to fullscreen
 class LoginAnimation extends StatefulWidget {
   /// To set type animation and  start and end animation
   LoginAnimation({Key key, this.animationController})

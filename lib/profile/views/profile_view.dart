@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:isouq/Helpers/google_admob_management//google_admob.dart';
 import 'package:isouq/common/ui_events/ui_events.dart';
 import 'package:isouq/home/GridListScreen.dart';
-import 'package:isouq/login/views/ChoseLoginOrSignup.dart';
+import 'package:isouq/login/views/ChooseLoginOrSignup.dart';
 import 'package:isouq/profile/views/AboutApps.dart';
 import 'package:isouq/profile/views/language_Setting_view.dart';
 import 'package:isouq/common/text_styles/text_styles.dart';
@@ -93,7 +93,7 @@ class _profileState extends State<profile> {
   _navigateToLogin()
   {
     Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (BuildContext context) => new ChoseLogin()));
+        builder: (BuildContext context) => new ChooseLogin()));
   }
 
   _showLogoutAlertDialog(BuildContext context) {

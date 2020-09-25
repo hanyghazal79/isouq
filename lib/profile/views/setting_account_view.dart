@@ -9,7 +9,7 @@ import 'package:isouq/common/text_styles/text_styles.dart';
 import 'package:isouq/common/ui_events/ui_events.dart';
 import 'package:isouq/common/widgets/gradient_app_bar.dart';
 import 'package:isouq/profile/models/profileModel.dart';
-import 'package:isouq/login/views/ChoseLoginOrSignup.dart';
+import 'package:isouq/login/views/ChooseLoginOrSignup.dart';
 import 'package:isouq/profile/viewmodels/profile_viewmodel.dart';
 import 'package:provider/provider.dart';
 

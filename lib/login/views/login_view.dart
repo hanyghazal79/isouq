@@ -12,13 +12,13 @@ import 'package:isouq/login/viewmodels/login_viewmodel.dart';
 import 'package:isouq/sign_up/views/sign_up_view.dart';
 import 'package:provider/provider.dart';
 
-class loginScreen extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  _loginScreenState createState() => _loginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
 /// Component Widget this layout UI
-class _loginScreenState extends State<loginScreen>
+class _LoginScreenState extends State<LoginScreen>
     with TickerProviderStateMixin {
 
   LoginViewModel _viewModel;
@@ -85,11 +85,11 @@ class _loginScreenState extends State<loginScreen>
     new LoginAnimation(
       animationController: sanimationController.view,
     );
-    _PlayAnimation();
+    _playAnimation();
     return tap;
   }
-  /// Playanimation set forward reverse
-  Future<Null> _PlayAnimation() async {
+  /// Play animation set forward reverse
+  Future<Null> _playAnimation() async {
     try {
       await sanimationController.forward();
       await sanimationController.reverse();
@@ -100,7 +100,7 @@ class _loginScreenState extends State<loginScreen>
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
-    mediaQueryData.devicePixelRatio;
+    // mediaQueryData.devicePixelRatio;
     mediaQueryData.size.width;
     mediaQueryData.size.height;
 
@@ -223,10 +223,10 @@ class _loginScreenState extends State<loginScreen>
                             Padding(
                                 padding:
                                 EdgeInsets.symmetric(vertical: 10.0)),
-                            textFromField(
+                            CustomTextField(
                               icon: Icons.email,
                               password: false,
-                              email: tr('email'),
+                              label: tr('email'),
                               inputType: TextInputType.emailAddress,
                               textEditingController: _emailController,
                             ),
@@ -234,10 +234,10 @@ class _loginScreenState extends State<loginScreen>
                             /// TextFromField Password
                             Padding(
                                 padding: EdgeInsets.symmetric(vertical: 5.0)),
-                            textFromField(
+                            CustomTextField(
                               icon: Icons.vpn_key,
                               password: true,
-                              email:
+                              label:
                               tr('password'),
                               inputType: TextInputType.emailAddress,
                               textEditingController: _passwordController,

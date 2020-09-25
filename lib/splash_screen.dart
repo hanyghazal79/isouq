@@ -4,7 +4,7 @@ import 'package:isouq/Firebase/firebase_methods.dart';
 import 'package:isouq/Helpers/app_tools.dart';
 import 'package:isouq/Helpers/intro_tutorial/OnBoarding.dart';
 import 'dart:async';
-import 'package:isouq/login/views/ChoseLoginOrSignup.dart';
+import 'package:isouq/login/views/ChooseLoginOrSignup.dart';
 import 'common/widgets/BottomNavigationBar.dart';
 
 
@@ -56,11 +56,11 @@ class _SplashScreenState extends State<SplashScreen> {
     if (_isUserFirstTimeLogin) {
       /// if user has never been login
       Navigator.of(context).pushReplacement(
-          PageRouteBuilder(pageBuilder: (_, __, ___) => onBoarding()));
+          PageRouteBuilder(pageBuilder: (_, __, ___) => OnBoarding()));
     } else {
       /// if user has ever been login
       Navigator.of(context).pushReplacement(
-          PageRouteBuilder(pageBuilder: (_, __, ___) => ChoseLogin()));
+          PageRouteBuilder(pageBuilder: (_, __, ___) => ChooseLogin()));
     }
   }
 

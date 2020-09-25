@@ -236,7 +236,7 @@ class FirebaseMethods {
   }
 
   Future<String> createUserAccount(
-      {String fullname, String email, String password}) async {
+      {String fullName, String email, String password}) async {
     // TODO: implement createUserAccount
 //    try {
     var authResult = await auth.createUserWithEmailAndPassword(
@@ -247,7 +247,7 @@ class FirebaseMethods {
       currentProfileId = currentFirebaseUser.uid;
       await writeDataLocally(key: profileId, value: currentProfileId);
       await writeBoolDataLocally(key: loggedIN, value: true);
-      await addToFirebase(currentFirebaseUser, fullname);
+      await addToFirebase(currentFirebaseUser, fullName);
       streamProfile();
 //      profileStream = streamProfile(currentFirebaseUser.uid);
 
@@ -353,7 +353,7 @@ class FirebaseMethods {
     return firestore;
   }
 
-  SignOut() async {
+  signOut() async {
     await auth.signOut();
     await clearDataLocally();
     currentFirebaseUser = null;
