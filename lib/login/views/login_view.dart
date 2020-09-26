@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:isouq/Helpers/app_tools.dart';
 import 'package:isouq/common/animations/animations.dart';
+import 'package:isouq/common/static_vars/static_vars.dart';
 import 'package:isouq/common/ui_events/ui_events.dart';
 import 'package:isouq/common/widgets/BottomNavigationBar.dart';
 import 'package:isouq/common/widgets/button_black_bottom.dart';
@@ -11,6 +12,8 @@ import 'package:isouq/common/widgets/custom_text_field.dart';
 import 'package:isouq/login/viewmodels/login_viewmodel.dart';
 import 'package:isouq/sign_up/views/sign_up_view.dart';
 import 'package:provider/provider.dart';
+
+import '../../sign_up/views/sign_up_view.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -22,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen>
     with TickerProviderStateMixin {
 
   LoginViewModel _viewModel;
-
+  String btnText;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   //Animation Declaration
@@ -34,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen>
 
   /// set state animation controller
   void initState() {
+    Universal.textOfButton = tr('login');
     sanimationController =
     AnimationController(vsync: this, duration: Duration(milliseconds: 800))
       ..addStatusListener((statuss) {
@@ -52,9 +56,9 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   void dispose() {
     sanimationController.dispose();
-    _passwordController.dispose();
-    _emailController.dispose();
-    _viewModel.dispose();
+    // _passwordController.dispose();
+    // _emailController.dispose();
+    // _viewModel.dispose();
     super.dispose();
   }
 

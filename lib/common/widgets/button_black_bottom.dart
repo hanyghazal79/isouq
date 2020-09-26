@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:isouq/common/static_vars/static_vars.dart';
 import 'package:isouq/sign_up/views/sign_up_view.dart';
 
 ///ButtonBlack class
@@ -8,20 +9,20 @@ class ButtonBlackBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-                builder: (BuildContext context) =>
-                new Signup()
-            ));
-      },
+      // onTap: () {
+      //   Navigator.of(context).pushReplacement(
+      //       MaterialPageRoute(
+      //           builder: (BuildContext context) =>
+      //           new Signup()
+      //       ));
+      // },
       child: Padding(
         padding: EdgeInsets.all(30.0),
         child: Container(
           height: 55.0,
           width: 600.0,
           child: Text(
-            tr('signUp'),
+            Universal.textOfButton,
             style: TextStyle(
                 color: Colors.black,
                 letterSpacing: 0.2,

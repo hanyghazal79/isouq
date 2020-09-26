@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:isouq/Helpers/app_tools.dart';
 import 'package:isouq/common/animations/animations.dart';
+import 'package:isouq/common/static_vars/static_vars.dart';
 import 'package:isouq/common/ui_events/ui_events.dart';
 import 'package:isouq/common/widgets/custom_text_field.dart';
 import 'package:isouq/login/views/login_view.dart';
@@ -45,10 +46,13 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
   TextEditingController _rePasswordController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
 
+  String btnText;
+
   //Animation Declaration
   /// Set AnimationController to initState
   @override
   void initState() {
+    Universal.textOfButton = tr('signUp');
     sanimationController =
     AnimationController(vsync: this, duration: Duration(milliseconds: 800))
       ..addStatusListener((status) {
@@ -72,7 +76,7 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
     // _passwordController.dispose();
     // _emailController.dispose();
     // _nameController.dispose();
-    _viewModel.dispose();
+    // _viewModel.dispose();
     super.dispose();
   }
 
@@ -124,7 +128,7 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
-    // mediaQueryData.devicePixelRatio;
+    mediaQueryData.devicePixelRatio;
     mediaQueryData.size.height;
     mediaQueryData.size.width;
 
@@ -221,7 +225,7 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
                                   icon: Icons.contacts,
                                   password: false,
                                   label:
-                                  tr('user name'),
+                                  tr('name'),
                                   inputType: TextInputType.text,
                                   textEditingController: _nameController,
                                 ),
