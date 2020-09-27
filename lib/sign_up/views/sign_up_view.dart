@@ -46,8 +46,6 @@ class _SignupState extends State<Signup> with TickerProviderStateMixin {
   TextEditingController _rePasswordController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
 
-  String btnText;
-
   //Animation Declaration
   /// Set AnimationController to initState
   @override

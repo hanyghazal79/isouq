@@ -85,7 +85,7 @@ class _ChooseLoginState extends State<ChooseLogin> with TickerProviderStateMixin
     new LoginAnimation(
       animationController: animationController.view,
     );
-    _PlayAnimation();
+    _playAnimation();
     return tap;
   }
 
@@ -95,8 +95,8 @@ class _ChooseLoginState extends State<ChooseLogin> with TickerProviderStateMixin
         builder: (BuildContext context) => new bottomNavigationBar()));
   }
 
-  /// Playanimation set forward reverse
-  Future<Null> _PlayAnimation() async {
+  /// Play animation set forward reverse
+  Future<Null> _playAnimation() async {
 
     try {
       await animationController.forward();
@@ -231,7 +231,7 @@ class _ChooseLoginState extends State<ChooseLogin> with TickerProviderStateMixin
                                           setState(() {
                                             tapLogin = 1;
                                           });
-                                          _PlayAnimation();
+                                          _playAnimation();
                                           return tapLogin;
                                         },
                                         child: ButtonCustom(txt: tr('signUp')),
@@ -260,7 +260,7 @@ class _ChooseLoginState extends State<ChooseLogin> with TickerProviderStateMixin
                                       child: InkWell(
                                         onTap: () {
                                           // signInAnonymously to firebase
-                                          _viewModel.loginAnynmously();
+                                          _viewModel.loginAnonymously();
                                         },
                                         child: Text(
                                           tr('orSkip'),
@@ -296,7 +296,7 @@ class _ChooseLoginState extends State<ChooseLogin> with TickerProviderStateMixin
                                       setState(() {
                                         tapSignup = 1;
                                       });
-                                      _PlayAnimation();
+                                      _playAnimation();
                                       return tapSignup;
                                     },
                                     child: ButtonCustom(txt: tr('login')),

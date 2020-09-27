@@ -255,11 +255,11 @@ class FirebaseMethods {
     return currentFirebaseUser == null ? _errorMessageEvent : success;
   }
 
-  addToFirebase(User user, String fullname) async {
+  addToFirebase(User user, String fullName) async {
     await firestore.collection(userCollection).doc(user.uid).set({
       profileId: user.uid,
       email: user.email,
-      name: fullname,
+      name: fullName,
       avatar: (user.photoURL != null && user.photoURL.isNotEmpty)
           ? user.photoURL
           : '',
@@ -277,10 +277,10 @@ class FirebaseMethods {
     await writeBoolDataLocally(key: loggedIN, value: true);
   }
 
-  Future<String> logginUser({String email, String password}) async {
-    // TODO: implement logginUser
+  Future<String> loginUser({String email, String password}) async {
+    // TODO: implement loginUser
 
-    try {
+    // try {
       await auth
           .signInWithEmailAndPassword(email: email, password: password)
           .then((authResult) {
@@ -294,19 +294,10 @@ class FirebaseMethods {
         currentProfileId = currentFirebaseUser.uid;
         streamProfile();
       }
-    } catch (e) {
-      //print(e.details);
 
-      if (e.toString().contains("ERROR_USER_NOT_FOUND")) {
-        _errorMessageEvent = "this email is not found";
-      }
-      if (e.toString().contains("ERROR_WRONG_PASSWORD")) {
-        _errorMessageEvent =
-            "The password is invalid or the user does not have a password";
-      }
-//      signError.onGetException(_errorMessageEvent);
-      return errorMSG(_errorMessageEvent);
-    }
+      // return errorMSG(_errorMessageEvent);
+
+    // }
 
     return currentFirebaseUser == null ? errorMSG("Error") : success;
   }

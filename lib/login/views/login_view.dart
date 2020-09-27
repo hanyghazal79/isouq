@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen>
           });
         }
       });
-    _viewModel = Provider.of<LoginViewModel>(context,listen: false);
+    _viewModel = Provider.of<LoginViewModel>(context, listen: false);
     _initiateUiEvents(context);
     super.initState();
   }
@@ -282,7 +282,8 @@ class _LoginScreenState extends State<LoginScreen>
                       ? InkWell(
                     splashColor: Colors.yellow,
                     onTap: () {
-
+                      firebaseSharedInstance.loginUser(email: _emailController.value.text, password: _passwordController.value.text);
+                      // _viewModel.loginWithEmailAndPassword(_emailController.value.text, _passwordController.value.text);
                     },
                     child: ButtonBlackBottom(),
                   )

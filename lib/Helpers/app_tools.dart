@@ -11,7 +11,7 @@ Widget appTextField(
     double sidePadding,
     TextInputType textType,
     TextEditingController controller,
-    IconButton suffexIcon}) {
+    IconButton suffixIcon}) {
   sidePadding == null ? sidePadding = 0.0 : sidePadding;
   textHint == null ? textHint = "" : textHint;
   //textType == null ? textType == TextInputType.text : textType;
@@ -30,7 +30,7 @@ Widget appTextField(
         decoration: new InputDecoration(
           border: InputBorder.none,
           hintText: textHint,
-          suffixIcon: suffexIcon == null ? null : suffexIcon,
+          suffixIcon: suffixIcon == null ? null : suffixIcon,
           prefixIcon: textIcon == null ? new Container() : new Icon(textIcon),
         ),
       ),
